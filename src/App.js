@@ -1,25 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext, useState } from 'react';
+import Header from './Components/Header/Header';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Home from './Components/Home/Home';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import TravelDetails from './Components/Home/TravelDetails';
+import Location from './Components/Location/Location';
+import PrivateRoute from './Components/PrivetaRoute/PrivateRoute';
+import Form from './Components/Form/Form'
 
+
+export const BookingContext = createContext()
 function App() {
+  
+  const [booking,setBooking] = useState('SREEMONGOL');
+  const [loggedInUser, setLoggedInUser] = useState({})
+
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BookingContext.Provider value={{bookingPackage: [booking,setBooking],tourist : [loggedInUser, setLoggedInUser]}} >
+     <Router>
+     <Header></Header>
+       <Switch>
+         <Route exact path="/">
+         <Home></Home>
+         </Route>
+         <Route path="/traveldetails">
+           <TravelDetails></TravelDetails>
+         </Route>
+         <Route path="/form">
+         <Form></Form>
+         </Route>
+         <PrivateRoute path="/location">
+           <Location></Location>
+         </PrivateRoute>
+        
+        </Switch>
+        </Router>
+    </BookingContext.Provider>
   );
 }
 
