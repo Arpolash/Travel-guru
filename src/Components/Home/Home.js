@@ -14,12 +14,12 @@ const Home = () => {
     return (
         <div className="container home pl-4">
                 <div className="row">
-                    <div className="col-4">
+                    <div className="col-md-4 col-12">
                         <HomeDetails></HomeDetails>
                         <Link to="/traveldetails"><button className="btn btn-primary px-5">Booking</button></Link>
                     </div>
                             
-                    <div className="co-8 d-flex">
+                    <div className="col-md-8 col-12 d-flex">
                    <div className="img-card" onClick={() => setBooking('SREEMONGOL')}>
                        <img src={Sreemongol} alt=""/>
                        <h4>SREEMONGOL</h4>

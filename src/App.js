@@ -20,14 +20,18 @@ function App() {
     <BookingContext.Provider value={{bookingPackage: [booking,setBooking],tourist : [loggedInUser, setLoggedInUser]}} >
      <Router>
      <Header></Header>
+  
        <Switch>
          <Route exact path="/">
          <Home></Home>
          </Route>
-         <Route path="/traveldetails">
+         <Route path="/home">
+         <Home></Home>
+         </Route>
+         <Route exact path="/traveldetails">
            <TravelDetails></TravelDetails>
          </Route>
-         <Route path="/form">
+         <Route exact path="/form">
          <Form></Form>
          </Route>
          <PrivateRoute path="/location">

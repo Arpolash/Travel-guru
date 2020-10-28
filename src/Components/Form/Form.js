@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+
+
++import React, { useState } from 'react';
 import { useContext } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { initializeLoginFramework, handleGoogleSignIn, handleFbSignIn, createUserWithEmailAndPassword, signInWithEmailAndPassword } from './FormManager';
 import { BookingContext } from '../../App';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faFacebookF, faGoogle} from '@fortawesome/free-brands-svg-icons';
 
 
